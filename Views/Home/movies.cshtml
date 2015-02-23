@@ -1,0 +1,13 @@
+﻿@model IEnumerable<Cinema.Models.Movie>
+
+    <div class="content" >
+        <ul class="list">
+        @foreach (var x in Model)
+        {
+            
+            <li><img src="@Url.Action("show","Home",new{id =x.Id})" alt="" /><a href="~/Home/movie/@x.Id"> <h3>@x.Name</h3> </a><br />
+              @x.Description</li>
+        }
+        </ul>
+    </div>
+      
