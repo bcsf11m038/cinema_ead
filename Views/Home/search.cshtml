@@ -1,0 +1,26 @@
+﻿@model IEnumerable<Cinema.Models.Movie>
+
+<div class="content" id="1234" >       
+</div>
+ <script src="~/scripts/jquery-1.10.2.js"></script>
+<script>
+    $('document').ready(function(){
+        
+            $.getJSON("searchBar?edate=@ViewBag.edate&&sdate=@ViewBag.sdate", function (data)
+            {
+               // $('123').hide();
+                
+            if (data) {
+                $.each(data, function (index,item) {
+                    
+                    $('#1234').append("<a href=\"/home/movie/"+item.Id+"\"><h3>"+item.Name+ "</h3></a><br/><div class=\"img-box1 alt\"><img src=\"/Admin/show/"+item.Id+"\" alt=\"\" /><label> Director:"+ item.Director+"</label><br /> <label>Type:"+item.Type+"</label><br /><label>Genre:"+ item.Genre+"</label><br /><label>Release Date:"+item.Sdate+"</label><br /><br />Description:" +item.Description+"</div>");
+                    });
+            }
+            else {
+                
+                $('#1234').append("<h4> No entryMatched </h4>");
+                }
+    });
+ });
+ </script>
+

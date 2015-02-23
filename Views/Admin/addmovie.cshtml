@@ -1,0 +1,53 @@
+﻿
+@{
+    ViewBag.Title = "Add Movie";
+}
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="content">
+          <h3>Movie Detail <span>Form</span></h3>
+          
+              @Html.BeginForm("NewMovie", "admin", FormMethod.Post, new { enctype = "multipart/form-data", @data_ajax = "false" ,id="contacts-form"});
+            <fieldset>
+                <div class="field">
+               <label>Movie Name:</label>
+                <input type="text" value="" name="m.Name"/></div>
+               <div class="field">
+               <label>Genre:</label>
+                <input type="text" value="" name="m.Genre"/></div>
+              <div class="field">
+               <label>Director:</label>
+                <input type="text" value="" name="m.Director"/>
+               </div>
+              <div class="field">
+                <label>Release Date:</label>
+                <input type="date" value="" name="t.Sdate"/>
+              </div>
+              <div class="field">
+                <label>Show upto Date:</label>
+                <input type="date" value="" name="t.Edate"/>
+              </div>
+                <div class="field">
+               <label>Movie Type:</label>
+                <input type="text" value="" name="m.Type"/>
+              </div>
+                <div class="field">
+               <label>Timings(comma seperated)</label>
+                <input type="text" value="" name="t.Time"/>
+              </div> 
+              <div class="field">
+                <label>Image:</label>
+                <input type="file" value="" name="upload"/>
+              </div>
+                 <div class="field">
+               <label>Movie Description:</label>
+                <textarea cols="1" rows="1" name="m.Description"></textarea>
+              </div>
+               
+
+               <input class="myButton" type ="submit" value="submit" style="float:right;margin-right:100px;width:100px"/>
+
+            </fieldset>
+       
+ </div>

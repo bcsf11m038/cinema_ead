@@ -1,0 +1,135 @@
+﻿@model Cinema.Models.MovieTiming
+
+       <div id="content">
+        <div class="line-hor"></div>
+        <div class="box">   
+                    
+                <div style="padding-top: 5px; padding-left: 5px; height: 22px; background-color: #ffc000;
+                    background-image: url(images/movie-schedule.png)">
+                    <h1 style="color: #ffffff; font-size: 16px;">
+                        Movie Schedule - Cinema World</h1>
+                </div>
+                
+                
+                        <table width="100%" cellspacing="1" style="font-size: 12px;">
+                    @foreach(var x in ViewBag.now)
+                    {
+                        <tr>
+                            <td style="background-color: #eeeeee; height: 50px; font-size: 11px; line-height: 15px;
+                                width: 180px;" valign="middle">
+                                <div style="padding-left: 5px;">
+                                    <a href="/sozo-movie/348/P.K.-"
+                                        style="text-decoration: none; color: #000000; font-size: 12px;">
+                                        <h4>@x.Name</h4> </a> <a href="movie/@x.Id" class="html5lightbox"
+                                            style="text-decoration: none; color: #007fff" title="Movie trailer: P.K. ">
+                                           <img src="@Url.Action("show","Home",new{id =x.Id})" alt="" /></a>
+                                </div>
+                            </td>
+                            <td style="background-color: #eeeeee;  color:black ;height: 50px; width: 40px; line-height: 15px;"
+                                valign="middle" align="center" >
+                                @x.Type
+                            </td>
+                            <td style="background-color: #eeeeee; color:black; height: 50px; line-height: 15px;" valign="middle"
+                                align="center">
+                                @foreach (var y in ViewBag.time)
+                                {
+                                    if(y.MovieId == @x.Id){
+                                        @y.Time;
+                                    }
+                                }
+                            </td>
+                        </tr>
+                    }
+                        </table>
+                    
+<br />
+ <div id="divworldNext" style="padding-top: 5px; padding-left: 5px; height: 22px; background-color: #3a3d42;
+                    background-image: url(images/movie-schedule.png)">
+                    <h1 style="color: #ffffff; font-size: 16px;">
+                        Next Schedule </h1>
+                </div>
+<br />              
+                <div style="padding-top: 5px; padding-left: 5px; height: 22px; background-color: #e6da9d;
+                    background-image: url(images/movie-schedule.png)">
+                    <h1 style="color: #ffffff; font-size: 16px;">
+                        Movie Schedule - Sozo Gold</h1>
+                </div>
+                
+                
+                        <table width="100%" cellspacing="1" style="font-size: 12px;">
+                        @foreach(var x in ViewBag.later)
+                        {
+                        <tr>
+                            <td style="background-color: #eeeeee; height: 50px; font-size: 11px; line-height: 15px;
+                                width: 180px;" valign="middle">
+                                <div style="padding-left: 5px;">
+                                    <a href="/sozo-movie/348/P.K.-"
+                                        style="text-decoration: none; color: #000000; font-size: 12px;">
+                                        <h4>@x.Name</h4> </a> <a href="movie/@x.Id" class="html5lightbox"
+                                            style="text-decoration: none; color: #007fff" title="Movie trailer: P.K. ">
+                                            <img style="margin-top: 10px;" src="@Url.Action("show","Home",new{id =x.Id})" border="0" /></a>
+                                </div>
+                            </td>
+                            <td style="background-color: #eeeeee; color:black;height: 50px; width: 40px; line-height: 15px;"
+                                valign="middle" align="center">
+                                @x.Type
+                            </td>
+                            <td style="background-color: #eeeeee; color:black;height: 50px; line-height: 15px;" valign="middle"
+                                align="center">
+                                @foreach (var y in ViewBag.timelater)
+                                {
+                                    if(y.MovieId == @x.Id){
+                                        @y.Time;
+                                    }
+                                }
+                            </td>
+                        </tr>
+                        }
+                        <!-- <tr>
+                            <td style="background-color: #eeeeee; height: 50px; font-size: 11px; line-height: 15px;
+                                width: 180px;" valign="middle">
+                                <div style="padding-left: 5px;">
+                                    <a href="/sozo-movie/364/Tevar-"
+                                        style="text-decoration: none; color: #000000; font-size: 12px;">
+                                        Tevar </a> <a href="" class="html5lightbox"
+                                            style="text-decoration: none; color: #007fff" title="Movie trailer: Tevar ">
+                                            <img style="margin-top: 10px;" src="images/trailer.gif" border="0" /></a>
+                                </div>
+                            </td>
+                            <td style="background-color: #eeeeee; height: 50px; width: 40px; line-height: 15px;"
+                                valign="middle" align="center">
+                                2D
+                            </td>
+                            <td style="background-color: #eeeeee; height: 50px; line-height: 15px;" valign="middle"
+                                align="center">
+                                02:15PM & 07:45PM
+                            </td>
+                        </tr>
+                    
+                        <tr>
+                            <td style="background-color: #eeeeee; height: 50px; font-size: 11px; line-height: 15px;
+                                width: 180px;" valign="middle">
+                                <div style="padding-left: 5px;">
+                                    <a href="/sozo-movie/380/Alone"
+                                        style="text-decoration: none; color: #000000; font-size: 12px;">
+                                        Alone</a> <a href="" class="html5lightbox"
+                                            style="text-decoration: none; color: #007fff" title="Movie trailer: Alone">
+                                            <img style="margin-top: 10px;" src="images/trailer.gif" border="0" /></a>
+                                </div>
+                            </td>
+                            <td style="background-color: #eeeeee; height: 50px; width: 40px; line-height: 15px;"
+                                valign="middle" align="center">
+                                2D
+                            </td>
+                            <td style="background-color: #eeeeee; height: 50px; line-height: 15px;" valign="middle"
+                                align="center">
+                                12:00PM & 10:30PM
+                            </td>
+                        </tr>
+                    -->
+                        </table>
+                    
+            </div>
+        </div>
+</div>
+</div>

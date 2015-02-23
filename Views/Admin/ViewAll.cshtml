@@ -1,0 +1,18 @@
+﻿@model IEnumerable<Cinema.Models.Movie>
+@{
+    ViewBag.Title = "View All Movies";
+}
+@{
+    Layout = "~/Views/Shared/AdminEmptyLayout.cshtml";
+}
+<div class="content" >
+        <ul class="list">
+        @foreach (var x in Model)
+        {
+            
+            <li><img src="@Url.Action("show","Admin",new{id =x.Id})" alt="" /><a href="~/Home/movie/@x.Id"> <h4>@x.Name</h4> </a><br />
+              @x.Description <br /><br /> <a  href="/Admin/EditMovie/@x.Id"  class="myButton">Edit</a> <a  href="/Admin/Delete/@x.Id"  class="myButton">Delete</a> </li>
+        }
+        </ul>
+    </div>
+      

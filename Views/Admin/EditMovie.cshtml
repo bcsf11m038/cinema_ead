@@ -1,0 +1,52 @@
+﻿@model Cinema.Models.MovieTiming
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="content">
+          <h3>Movie Detail <span>Form</span></h3>
+          
+              @Html.BeginForm("ConfirmEdit", "admin", FormMethod.Post, new { enctype = "multipart/form-data", @data_ajax = "false" ,id="contacts-form"});
+            <fieldset>
+                <div class="field">
+                <input type="hidden" value="@Model.m.Id" name="m.Id" />
+                <label>Movie Name:</label>
+                <input type="text" value="@Model.m.Name" name="m.Name"/>
+              </div>
+               <div class="field">
+                <label>Genre:</label>
+                <input type="text" value="@Model.m.Genre" name="m.Genre"/>
+              </div>
+              <div class="field">
+                <label>Director:</label>
+                <input type="text" value="@Model.m.Director" name="m.Director"/>
+              </div>
+              <div class="field">
+                <label>Release Date:</label>
+                <input type="date" value="@Model.t.Sdate" name="t.Sdate"/>
+              </div>
+              <div class="field">
+                <label>Show upto Date:</label>
+                <input type="date" value="@Model.t.Edate" name="t.Edate"/>
+              </div>
+                <div class="field">
+                <label>Movie Type:</label>
+                <input type="text" value="@Model.m.Type" name="m.Type"/>
+              </div>
+                <div class="field">
+                <label>Timings(comma seperated)</label>
+                <input type="text" value="@Model.t.Time" name="t.Time"/>
+              </div> 
+             @*<div class="field">
+                <input type="hidden" value="@Model.m.Image" name="upload"/>
+              </div> *@
+                 <div class="field">
+                <label>Movie Description:</label>
+                <textarea cols="1" rows="1" name="m.Description" >@Model.m.Description</textarea>
+              </div>
+               
+
+               <input class="myButton" type ="submit" style="float:right;margin-right:100px;width:100px"/>
+
+            </fieldset>
+          </form>
+ </div>
